@@ -1,19 +1,16 @@
-import { MyButton } from './UI/button/MyButton';
+import { MyButton } from "./UI/button/MyButton";
 
-export const PostItem = props => {
+export const PostItem = ({ number, post, onRemove }) => {
   return (
     <div className="post">
       <div className="post__content">
         <strong>
-          {props.number}.{props.post.title}
+          {number}.{post.title}
         </strong>
-        <div>{props.post.body}</div>
+        <div>{post.body}</div>
       </div>
       <div className="post__btns">
-        <MyButton
-          title="Видалити"
-          onClick={() => props.remove(props.post)}
-        ></MyButton>
+        <MyButton onClick={() => onRemove(post.id)}>Видалити</MyButton>
       </div>
     </div>
   );
